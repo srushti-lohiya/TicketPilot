@@ -1,0 +1,33 @@
+# Preparation only. Creating/applying this Blueprint is a deployment and needs owner approval.
+services:
+  - type: web
+    name: ticketpilot-api
+    runtime: python
+    plan: free
+    autoDeployTrigger: "off"
+    buildCommand: pip install --no-cache-dir -r requirements-render.txt && python scripts/check_runtime.py
+    startCommand: sh scripts/start_render.sh
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.4
+      - key: DEMO_MODE
+        value: "1"
+      - key: RETRIEVAL_BACKEND
+        value: tfidf
+      - key: CORS_ORIGINS
+        sync: false
+      - key: HF_HUB_OFFLINE
+        value: "1"
+      - key: TRANSFORMERS_OFFLINE
+        value: "1"
+      - key: OPENBLAS_NUM_THREADS
+        value: "1"
+      - key: OMP_NUM_THREADS
+        value: "1"
+      - key: MKL_NUM_THREADS
+        value: "1"
+      - key: PYTHONDONTWRITEBYTECODE
+        value: "1"
+      - key: PYTHONUNBUFFERED
+        value: "1"

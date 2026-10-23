@@ -1,0 +1,25 @@
+{
+  "bitext_test": {
+    "baseline_accuracy": 0.04118616144975288,
+    "accuracy": 0.9989017023613399,
+    "macro_f1": 0.9989042465662231,
+    "category_accuracy": 0.99945085118067,
+    "accuracy_noisy_text": 0.9987269255251432,
+    "ece": 0.012934546249658322
+  },
+  "auto_threshold": 0.87,
+  "realistic_test": {
+    "n": 33,
+    "in_scope_accuracy": 0.6666666666666666,
+    "auto_coverage_in_scope": 0.2962962962962963,
+    "auto_accuracy": 1.0,
+    "out_of_scope_escalated": 1.0
+  },
+  "realistic_all_no_threshold": {
+    "n": 66,
+    "in_scope_accuracy": 0.6851851851851852,
+    "auto_coverage_in_scope": 1.0,
+    "auto_accuracy": 0.5606060606060606,
+    "out_of_scope_escalated": 0.0
+  }
+}

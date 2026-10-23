@@ -1,0 +1,17 @@
+{
+  "agent": "fallback",
+  "tickets": 66,
+  "routing": {
+    "needs_review": 0.742,
+    "auto_resolved": 0.152,
+    "escalated": 0.106
+  },
+  "out_of_scope_not_auto_resolved": 1.0,
+  "auto_resolve_precision": 1.0,
+  "auto_resolve_coverage_in_scope": 0.18518518518518517,
+  "grounded_citation_rate": 0.6862745098039216,
+  "guardrail_pass_rate": 0.9491525423728814,
+  "latency_ms_p50": 13.95,
+  "latency_ms_p95": 153.15,
+  "avg_tokens_per_ticket": 0.0
+}

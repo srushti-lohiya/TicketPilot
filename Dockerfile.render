@@ -1,0 +1,15 @@
+# Optional local resource-validation image for the same backend. Native Render config is render.yaml.
+FROM python:3.13.4-slim
+WORKDIR /app
+ENV DEMO_MODE=1 RETRIEVAL_BACKEND=tfidf HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 \
+    OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+    PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+COPY requirements-render.txt ./
+RUN pip install --no-cache-dir -r requirements-render.txt
+COPY src ./src
+COPY kb ./kb
+COPY models/intent_clf.joblib ./models/intent_clf.joblib
+COPY eval/intent_to_kb.json ./eval/intent_to_kb.json
+COPY scripts ./scripts
+RUN python scripts/check_runtime.py
+CMD ["sh", "scripts/start_render.sh"]
